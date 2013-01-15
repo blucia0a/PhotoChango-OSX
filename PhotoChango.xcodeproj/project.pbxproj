@@ -11,12 +11,46 @@
 		370B9C2F16A212FD008B2CB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 370B9C2D16A212FD008B2CB6 /* InfoPlist.strings */; };
 		370B9C3116A212FD008B2CB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C3016A212FD008B2CB6 /* main.m */; };
 		370B9C3516A212FD008B2CB6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 370B9C3316A212FD008B2CB6 /* Credits.rtf */; };
-		370B9C3816A212FD008B2CB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C3716A212FD008B2CB6 /* AppDelegate.m */; };
+		370B9C3816A212FD008B2CB6 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C3716A212FD008B2CB6 /* AppDelegate.mm */; };
 		370B9C3B16A212FE008B2CB6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 370B9C3916A212FE008B2CB6 /* MainMenu.xib */; };
 		370B9C4316A212FE008B2CB6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370B9C4216A212FE008B2CB6 /* SenTestingKit.framework */; };
 		370B9C4416A212FE008B2CB6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370B9C2416A212FD008B2CB6 /* Cocoa.framework */; };
 		370B9C4C16A212FE008B2CB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 370B9C4A16A212FE008B2CB6 /* InfoPlist.strings */; };
 		370B9C4F16A212FE008B2CB6 /* PhotoChangoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C4E16A212FE008B2CB6 /* PhotoChangoTests.m */; };
+		370B9C6316A21395008B2CB6 /* ChangoMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C5916A21395008B2CB6 /* ChangoMain.cpp */; };
+		370B9C6416A21395008B2CB6 /* Mahalo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C5A16A21395008B2CB6 /* Mahalo.cpp */; };
+		370B9C6516A21395008B2CB6 /* Pixelator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C5C16A21395008B2CB6 /* Pixelator.cpp */; };
+		370B9C6616A21395008B2CB6 /* SampleMixer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C5E16A21395008B2CB6 /* SampleMixer.cpp */; };
+		370B9C6716A21395008B2CB6 /* Wave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 370B9C6116A21395008B2CB6 /* Wave.cpp */; };
+		375FBAF316A2633E004E1695 /* PhotoChangoMenuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 375FBAF216A2633E004E1695 /* PhotoChangoMenuController.mm */; };
+		375FBB1216A2B916004E1695 /* BeatChango.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBAFB16A2B916004E1695 /* BeatChango.cpp */; };
+		375FBB1416A2B916004E1695 /* MIDIChango.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBAFF16A2B916004E1695 /* MIDIChango.cpp */; };
+		375FBB1616A2B916004E1695 /* WaveChango.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBB0216A2B916004E1695 /* WaveChango.cpp */; };
+		375FBB1816A2B916004E1695 /* CameraAndWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBB0616A2B916004E1695 /* CameraAndWindow.cpp */; };
+		375FBB1A16A2B916004E1695 /* ChangoInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBB0916A2B916004E1695 /* ChangoInput.cpp */; };
+		375FBB1C16A2B916004E1695 /* ChangoLightVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBB0C16A2B916004E1695 /* ChangoLightVideo.cpp */; };
+		375FBB1E16A2B916004E1695 /* ChangoMotionVideo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBB0F16A2B916004E1695 /* ChangoMotionVideo.cpp */; };
+		375FBB2316A2BA28004E1695 /* BeatWave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375FBB2116A2BA28004E1695 /* BeatWave.cpp */; };
+		375FBB2716A2BC5F004E1695 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB2516A2BC5F004E1695 /* CoreAudio.framework */; };
+		375FBB2816A2BC5F004E1695 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB2616A2BC5F004E1695 /* CoreAudioKit.framework */; };
+		375FBB3316A2BF0A004E1695 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3216A2BF0A004E1695 /* CoreMIDI.framework */; };
+		375FBB3516A2C310004E1695 /* libopencv_legacy.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3416A2C310004E1695 /* libopencv_legacy.2.4.3.dylib */; };
+		375FBB3916A2C402004E1695 /* libopencv_video.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3616A2C402004E1695 /* libopencv_video.2.4.3.dylib */; };
+		375FBB3A16A2C402004E1695 /* libopencv_core.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3716A2C402004E1695 /* libopencv_core.2.4.3.dylib */; };
+		375FBB3B16A2C402004E1695 /* libopencv_imgproc.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3816A2C402004E1695 /* libopencv_imgproc.2.4.3.dylib */; };
+		375FBB4916A2C473004E1695 /* libopencv_gpu.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3C16A2C472004E1695 /* libopencv_gpu.2.4.3.dylib */; };
+		375FBB4A16A2C473004E1695 /* libopencv_stitching.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3D16A2C472004E1695 /* libopencv_stitching.2.4.3.dylib */; };
+		375FBB4B16A2C473004E1695 /* libopencv_ts.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3E16A2C472004E1695 /* libopencv_ts.2.4.3.dylib */; };
+		375FBB4C16A2C473004E1695 /* libopencv_videostab.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB3F16A2C472004E1695 /* libopencv_videostab.2.4.3.dylib */; };
+		375FBB4D16A2C473004E1695 /* libopencv_calib3d.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4016A2C473004E1695 /* libopencv_calib3d.2.4.3.dylib */; };
+		375FBB4E16A2C473004E1695 /* libopencv_contrib.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4116A2C473004E1695 /* libopencv_contrib.2.4.3.dylib */; };
+		375FBB4F16A2C473004E1695 /* libopencv_features2d.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4216A2C473004E1695 /* libopencv_features2d.2.4.3.dylib */; };
+		375FBB5016A2C473004E1695 /* libopencv_highgui.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4316A2C473004E1695 /* libopencv_highgui.2.4.3.dylib */; };
+		375FBB5116A2C473004E1695 /* libopencv_ml.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4416A2C473004E1695 /* libopencv_ml.2.4.3.dylib */; };
+		375FBB5216A2C473004E1695 /* libopencv_nonfree.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4516A2C473004E1695 /* libopencv_nonfree.2.4.3.dylib */; };
+		375FBB5316A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4616A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib */; };
+		375FBB5416A2C473004E1695 /* libopencv_photo.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4716A2C473004E1695 /* libopencv_photo.2.4.3.dylib */; };
+		375FBB5516A2C473004E1695 /* libopencv_flann.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4816A2C473004E1695 /* libopencv_flann.2.4.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +75,7 @@
 		370B9C3216A212FD008B2CB6 /* PhotoChango-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoChango-Prefix.pch"; sourceTree = "<group>"; };
 		370B9C3416A212FD008B2CB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		370B9C3616A212FD008B2CB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		370B9C3716A212FD008B2CB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		370B9C3716A212FD008B2CB6 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		370B9C3A16A212FE008B2CB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		370B9C4116A212FE008B2CB6 /* PhotoChangoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoChangoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		370B9C4216A212FE008B2CB6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -49,6 +83,58 @@
 		370B9C4B16A212FE008B2CB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		370B9C4D16A212FE008B2CB6 /* PhotoChangoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoChangoTests.h; sourceTree = "<group>"; };
 		370B9C4E16A212FE008B2CB6 /* PhotoChangoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoChangoTests.m; sourceTree = "<group>"; };
+		370B9C5816A21395008B2CB6 /* ChangoGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangoGlobal.h; sourceTree = "<group>"; };
+		370B9C5916A21395008B2CB6 /* ChangoMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChangoMain.cpp; sourceTree = "<group>"; };
+		370B9C5A16A21395008B2CB6 /* Mahalo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mahalo.cpp; sourceTree = "<group>"; };
+		370B9C5B16A21395008B2CB6 /* Mahalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mahalo.h; sourceTree = "<group>"; };
+		370B9C5C16A21395008B2CB6 /* Pixelator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pixelator.cpp; sourceTree = "<group>"; };
+		370B9C5D16A21395008B2CB6 /* Pixelator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pixelator.h; sourceTree = "<group>"; };
+		370B9C5E16A21395008B2CB6 /* SampleMixer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SampleMixer.cpp; sourceTree = "<group>"; };
+		370B9C5F16A21395008B2CB6 /* SampleMixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleMixer.h; sourceTree = "<group>"; };
+		370B9C6016A21395008B2CB6 /* SampleSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleSource.h; sourceTree = "<group>"; };
+		370B9C6116A21395008B2CB6 /* Wave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wave.cpp; sourceTree = "<group>"; };
+		370B9C6216A21395008B2CB6 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
+		375FBAF116A2633E004E1695 /* PhotoChangoMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoChangoMenuController.h; sourceTree = "<group>"; };
+		375FBAF216A2633E004E1695 /* PhotoChangoMenuController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PhotoChangoMenuController.mm; sourceTree = "<group>"; };
+		375FBAFB16A2B916004E1695 /* BeatChango.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BeatChango.cpp; path = ChangoGenerators/BeatChango.cpp; sourceTree = "<group>"; };
+		375FBAFC16A2B916004E1695 /* BeatChango.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BeatChango.h; path = ChangoGenerators/BeatChango.h; sourceTree = "<group>"; };
+		375FBAFE16A2B916004E1695 /* ChangoGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangoGenerator.h; path = ChangoGenerators/ChangoGenerator.h; sourceTree = "<group>"; };
+		375FBAFF16A2B916004E1695 /* MIDIChango.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MIDIChango.cpp; path = ChangoGenerators/MIDIChango.cpp; sourceTree = "<group>"; };
+		375FBB0016A2B916004E1695 /* MIDIChango.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDIChango.h; path = ChangoGenerators/MIDIChango.h; sourceTree = "<group>"; };
+		375FBB0216A2B916004E1695 /* WaveChango.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WaveChango.cpp; path = ChangoGenerators/WaveChango.cpp; sourceTree = "<group>"; };
+		375FBB0316A2B916004E1695 /* WaveChango.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaveChango.h; path = ChangoGenerators/WaveChango.h; sourceTree = "<group>"; };
+		375FBB0616A2B916004E1695 /* CameraAndWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CameraAndWindow.cpp; path = ChangoInputs/CameraAndWindow.cpp; sourceTree = "<group>"; };
+		375FBB0716A2B916004E1695 /* CameraAndWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraAndWindow.h; path = ChangoInputs/CameraAndWindow.h; sourceTree = "<group>"; };
+		375FBB0916A2B916004E1695 /* ChangoInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChangoInput.cpp; path = ChangoInputs/ChangoInput.cpp; sourceTree = "<group>"; };
+		375FBB0A16A2B916004E1695 /* ChangoInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangoInput.h; path = ChangoInputs/ChangoInput.h; sourceTree = "<group>"; };
+		375FBB0C16A2B916004E1695 /* ChangoLightVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChangoLightVideo.cpp; path = ChangoInputs/ChangoLightVideo.cpp; sourceTree = "<group>"; };
+		375FBB0D16A2B916004E1695 /* ChangoLightVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangoLightVideo.h; path = ChangoInputs/ChangoLightVideo.h; sourceTree = "<group>"; };
+		375FBB0F16A2B916004E1695 /* ChangoMotionVideo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChangoMotionVideo.cpp; path = ChangoInputs/ChangoMotionVideo.cpp; sourceTree = "<group>"; };
+		375FBB1016A2B916004E1695 /* ChangoMotionVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangoMotionVideo.h; path = ChangoInputs/ChangoMotionVideo.h; sourceTree = "<group>"; };
+		375FBB2016A2B9E8004E1695 /* tones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tones.h; sourceTree = "<group>"; };
+		375FBB2116A2BA28004E1695 /* BeatWave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeatWave.cpp; sourceTree = "<group>"; };
+		375FBB2216A2BA28004E1695 /* BeatWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeatWave.h; sourceTree = "<group>"; };
+		375FBB2416A2BA7C004E1695 /* miditones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miditones.h; sourceTree = "<group>"; };
+		375FBB2516A2BC5F004E1695 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		375FBB2616A2BC5F004E1695 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		375FBB3216A2BF0A004E1695 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		375FBB3416A2C310004E1695 /* libopencv_legacy.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_legacy.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_legacy.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB3616A2C402004E1695 /* libopencv_video.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_video.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB3716A2C402004E1695 /* libopencv_core.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_core.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB3816A2C402004E1695 /* libopencv_imgproc.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_imgproc.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB3C16A2C472004E1695 /* libopencv_gpu.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_gpu.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_gpu.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB3D16A2C472004E1695 /* libopencv_stitching.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_stitching.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_stitching.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB3E16A2C472004E1695 /* libopencv_ts.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ts.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_ts.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB3F16A2C472004E1695 /* libopencv_videostab.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_videostab.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4016A2C473004E1695 /* libopencv_calib3d.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_calib3d.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4116A2C473004E1695 /* libopencv_contrib.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_contrib.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4216A2C473004E1695 /* libopencv_features2d.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_features2d.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4316A2C473004E1695 /* libopencv_highgui.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_highgui.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4416A2C473004E1695 /* libopencv_ml.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ml.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_ml.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4516A2C473004E1695 /* libopencv_nonfree.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_nonfree.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_nonfree.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4616A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_objdetect.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4716A2C473004E1695 /* libopencv_photo.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_photo.2.4.3.dylib; sourceTree = "<group>"; };
+		375FBB4816A2C473004E1695 /* libopencv_flann.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_flann.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_flann.2.4.3.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +142,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				375FBB4916A2C473004E1695 /* libopencv_gpu.2.4.3.dylib in Frameworks */,
+				375FBB4A16A2C473004E1695 /* libopencv_stitching.2.4.3.dylib in Frameworks */,
+				375FBB4B16A2C473004E1695 /* libopencv_ts.2.4.3.dylib in Frameworks */,
+				375FBB4C16A2C473004E1695 /* libopencv_videostab.2.4.3.dylib in Frameworks */,
+				375FBB4D16A2C473004E1695 /* libopencv_calib3d.2.4.3.dylib in Frameworks */,
+				375FBB4E16A2C473004E1695 /* libopencv_contrib.2.4.3.dylib in Frameworks */,
+				375FBB4F16A2C473004E1695 /* libopencv_features2d.2.4.3.dylib in Frameworks */,
+				375FBB5016A2C473004E1695 /* libopencv_highgui.2.4.3.dylib in Frameworks */,
+				375FBB5116A2C473004E1695 /* libopencv_ml.2.4.3.dylib in Frameworks */,
+				375FBB5216A2C473004E1695 /* libopencv_nonfree.2.4.3.dylib in Frameworks */,
+				375FBB5316A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib in Frameworks */,
+				375FBB5416A2C473004E1695 /* libopencv_photo.2.4.3.dylib in Frameworks */,
+				375FBB5516A2C473004E1695 /* libopencv_flann.2.4.3.dylib in Frameworks */,
+				375FBB3516A2C310004E1695 /* libopencv_legacy.2.4.3.dylib in Frameworks */,
+				375FBB3916A2C402004E1695 /* libopencv_video.2.4.3.dylib in Frameworks */,
+				375FBB3A16A2C402004E1695 /* libopencv_core.2.4.3.dylib in Frameworks */,
+				375FBB3B16A2C402004E1695 /* libopencv_imgproc.2.4.3.dylib in Frameworks */,
+				375FBB3316A2BF0A004E1695 /* CoreMIDI.framework in Frameworks */,
+				375FBB2716A2BC5F004E1695 /* CoreAudio.framework in Frameworks */,
+				375FBB2816A2BC5F004E1695 /* CoreAudioKit.framework in Frameworks */,
 				370B9C2516A212FD008B2CB6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +181,26 @@
 		370B9C1516A212FD008B2CB6 = {
 			isa = PBXGroup;
 			children = (
+				375FBB3C16A2C472004E1695 /* libopencv_gpu.2.4.3.dylib */,
+				375FBB3D16A2C472004E1695 /* libopencv_stitching.2.4.3.dylib */,
+				375FBB3E16A2C472004E1695 /* libopencv_ts.2.4.3.dylib */,
+				375FBB3F16A2C472004E1695 /* libopencv_videostab.2.4.3.dylib */,
+				375FBB4016A2C473004E1695 /* libopencv_calib3d.2.4.3.dylib */,
+				375FBB4116A2C473004E1695 /* libopencv_contrib.2.4.3.dylib */,
+				375FBB4216A2C473004E1695 /* libopencv_features2d.2.4.3.dylib */,
+				375FBB4316A2C473004E1695 /* libopencv_highgui.2.4.3.dylib */,
+				375FBB4416A2C473004E1695 /* libopencv_ml.2.4.3.dylib */,
+				375FBB4516A2C473004E1695 /* libopencv_nonfree.2.4.3.dylib */,
+				375FBB4616A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib */,
+				375FBB4716A2C473004E1695 /* libopencv_photo.2.4.3.dylib */,
+				375FBB4816A2C473004E1695 /* libopencv_flann.2.4.3.dylib */,
+				375FBB3616A2C402004E1695 /* libopencv_video.2.4.3.dylib */,
+				375FBB3716A2C402004E1695 /* libopencv_core.2.4.3.dylib */,
+				375FBB3816A2C402004E1695 /* libopencv_imgproc.2.4.3.dylib */,
+				375FBB3416A2C310004E1695 /* libopencv_legacy.2.4.3.dylib */,
+				375FBB3216A2BF0A004E1695 /* CoreMIDI.framework */,
+				375FBB2516A2BC5F004E1695 /* CoreAudio.framework */,
+				375FBB2616A2BC5F004E1695 /* CoreAudioKit.framework */,
 				370B9C2A16A212FD008B2CB6 /* PhotoChango */,
 				370B9C4716A212FE008B2CB6 /* PhotoChangoTests */,
 				370B9C2316A212FD008B2CB6 /* Frameworks */,
@@ -114,9 +240,41 @@
 		370B9C2A16A212FD008B2CB6 /* PhotoChango */ = {
 			isa = PBXGroup;
 			children = (
+				375FBB2416A2BA7C004E1695 /* miditones.h */,
+				375FBB2116A2BA28004E1695 /* BeatWave.cpp */,
+				375FBB2216A2BA28004E1695 /* BeatWave.h */,
+				375FBB2016A2B9E8004E1695 /* tones.h */,
+				375FBAFB16A2B916004E1695 /* BeatChango.cpp */,
+				375FBAFC16A2B916004E1695 /* BeatChango.h */,
+				375FBAFE16A2B916004E1695 /* ChangoGenerator.h */,
+				375FBAFF16A2B916004E1695 /* MIDIChango.cpp */,
+				375FBB0016A2B916004E1695 /* MIDIChango.h */,
+				375FBB0216A2B916004E1695 /* WaveChango.cpp */,
+				375FBB0316A2B916004E1695 /* WaveChango.h */,
+				375FBB0616A2B916004E1695 /* CameraAndWindow.cpp */,
+				375FBB0716A2B916004E1695 /* CameraAndWindow.h */,
+				375FBB0916A2B916004E1695 /* ChangoInput.cpp */,
+				375FBB0A16A2B916004E1695 /* ChangoInput.h */,
+				375FBB0C16A2B916004E1695 /* ChangoLightVideo.cpp */,
+				375FBB0D16A2B916004E1695 /* ChangoLightVideo.h */,
+				375FBB0F16A2B916004E1695 /* ChangoMotionVideo.cpp */,
+				375FBB1016A2B916004E1695 /* ChangoMotionVideo.h */,
+				370B9C5816A21395008B2CB6 /* ChangoGlobal.h */,
+				370B9C5916A21395008B2CB6 /* ChangoMain.cpp */,
+				370B9C5A16A21395008B2CB6 /* Mahalo.cpp */,
+				370B9C5B16A21395008B2CB6 /* Mahalo.h */,
+				370B9C5C16A21395008B2CB6 /* Pixelator.cpp */,
+				370B9C5D16A21395008B2CB6 /* Pixelator.h */,
+				370B9C5E16A21395008B2CB6 /* SampleMixer.cpp */,
+				370B9C5F16A21395008B2CB6 /* SampleMixer.h */,
+				370B9C6016A21395008B2CB6 /* SampleSource.h */,
+				370B9C6116A21395008B2CB6 /* Wave.cpp */,
+				370B9C6216A21395008B2CB6 /* Wave.h */,
 				370B9C3616A212FD008B2CB6 /* AppDelegate.h */,
-				370B9C3716A212FD008B2CB6 /* AppDelegate.m */,
+				370B9C3716A212FD008B2CB6 /* AppDelegate.mm */,
 				370B9C3916A212FE008B2CB6 /* MainMenu.xib */,
+				375FBAF116A2633E004E1695 /* PhotoChangoMenuController.h */,
+				375FBAF216A2633E004E1695 /* PhotoChangoMenuController.mm */,
 				370B9C2B16A212FD008B2CB6 /* Supporting Files */,
 			);
 			path = PhotoChango;
@@ -262,7 +420,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				370B9C3116A212FD008B2CB6 /* main.m in Sources */,
-				370B9C3816A212FD008B2CB6 /* AppDelegate.m in Sources */,
+				370B9C3816A212FD008B2CB6 /* AppDelegate.mm in Sources */,
+				370B9C6316A21395008B2CB6 /* ChangoMain.cpp in Sources */,
+				370B9C6416A21395008B2CB6 /* Mahalo.cpp in Sources */,
+				370B9C6516A21395008B2CB6 /* Pixelator.cpp in Sources */,
+				370B9C6616A21395008B2CB6 /* SampleMixer.cpp in Sources */,
+				370B9C6716A21395008B2CB6 /* Wave.cpp in Sources */,
+				375FBAF316A2633E004E1695 /* PhotoChangoMenuController.mm in Sources */,
+				375FBB1216A2B916004E1695 /* BeatChango.cpp in Sources */,
+				375FBB1416A2B916004E1695 /* MIDIChango.cpp in Sources */,
+				375FBB1616A2B916004E1695 /* WaveChango.cpp in Sources */,
+				375FBB1816A2B916004E1695 /* CameraAndWindow.cpp in Sources */,
+				375FBB1A16A2B916004E1695 /* ChangoInput.cpp in Sources */,
+				375FBB1C16A2B916004E1695 /* ChangoLightVideo.cpp in Sources */,
+				375FBB1E16A2B916004E1695 /* ChangoMotionVideo.cpp in Sources */,
+				375FBB2316A2BA28004E1695 /* BeatWave.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,11 +548,26 @@
 		370B9C5316A212FE008B2CB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"ADDITIONAL_SDKS[arch=i386]" = "";
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Library/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoChango/PhotoChango-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "PhotoChango/PhotoChango-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/Users/blucia0a/cvsandbox/OpenCVFramework/,
+					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/OpenCV.framework/Versions/A\"",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 $(ARCHS_STANDARD_64_BIT)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -388,11 +575,25 @@
 		370B9C5416A212FE008B2CB6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Library/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoChango/PhotoChango-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = "";
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "PhotoChango/PhotoChango-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/Users/blucia0a/cvsandbox/OpenCVFramework/,
+					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/OpenCV.framework/Versions/A\"",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "i386 $(ARCHS_STANDARD_64_BIT)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -446,6 +647,7 @@
 				370B9C5416A212FE008B2CB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		370B9C5516A212FE008B2CB6 /* Build configuration list for PBXNativeTarget "PhotoChangoTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +656,7 @@
 				370B9C5716A212FE008B2CB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
