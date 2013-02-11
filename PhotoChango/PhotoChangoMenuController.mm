@@ -132,7 +132,7 @@ static NSDictionary *toneMap;
 }
 
 - (IBAction)goFullScreen:(id)sender {
-    fprintf(stderr,"IS IT FUCKING GOING?");
+    
     handleFullScreen();
 }
 
