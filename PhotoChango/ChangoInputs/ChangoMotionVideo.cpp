@@ -84,6 +84,7 @@ ChangoMotionVideo::ChangoMotionVideo(ChangoGenerator *chan, Mahalo *M)
         if( handleKey() != 0 ){
           break;
         }
+        /*usleep(3000);*/
 
     }
 

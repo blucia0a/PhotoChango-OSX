@@ -7,19 +7,27 @@
 //
 
 #import "PhotoChangoMenuController.h"
+#import "AppDelegate.h"
+
 void Changomain(int argc, char **argv);
 void tune(int which, float freq);
 void handleFullScreen();
 static NSDictionary *toneMap;
+AppDelegate *me;
 
 @implementation PhotoChangoMenuController
 //@synthesize radioMatrix;
+//@synthesize toneFileField;
+@synthesize filePath;
+
 
 
 + (void)DoIt:(id)sender{
     
     fprintf(stderr,"HI HI HI HI HI");
    
+    me = sender;
+    
     NSArray *screenArray = [NSScreen screens];
     NSScreen *mainScreen = [NSScreen mainScreen];
     unsigned long screenCount = [screenArray count];
@@ -123,6 +131,7 @@ static NSDictionary *toneMap;
                [NSNumber numberWithDouble: 4186.0090], @"C8",
                              nil];
     
+    
     Changomain(0,0);
     
 }
@@ -134,6 +143,46 @@ static NSDictionary *toneMap;
 - (IBAction)goFullScreen:(id)sender {
     
     handleFullScreen();
+    
+}
+
+- (IBAction)loadToneFile:(id)sender {
+    
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    [panel setCanChooseFiles:YES];
+    [panel setCanChooseDirectories:NO];
+    [panel setAllowsMultipleSelection:NO];
+    NSInteger clicked = [panel runModal];
+    if( clicked == NSFileHandlingPanelOKButton ){
+        
+        for(NSURL *url in [panel URLs]){
+            
+            fprintf(stderr,"Tone File is: %s\n",[[url path] cStringUsingEncoding:NSStringEncodingConversionAllowLossy]);
+            
+        }
+        
+    }
+    
+}
+
+
+- (void) reTuneEmitter:(int)who toTone:(float)tone {
+    
+    fprintf(stderr,"Setting %d to %f",who,tone);
+    NSNumber *n = [NSNumber numberWithFloat:tone];
+    NSArray *temp = [toneMap allKeysForObject:(n)];
+    NSString *key = [temp objectAtIndex:0];
+    
+    [[radioMatrix cellWithTag: who] setTitle: key];
+    
+}
+
+
+void doRetune(int emitter, float tone) {
+    
+    
+   
+    
 }
 
 - (IBAction)FreqSelected:(NSComboBox *)sender {

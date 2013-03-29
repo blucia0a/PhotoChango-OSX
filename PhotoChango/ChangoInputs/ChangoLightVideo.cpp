@@ -81,6 +81,7 @@ ChangoLightVideo::ChangoLightVideo(ChangoGenerator *chan, Mahalo *M)
         if( keyRet != 0 ){
           break;
         }
+          /*usleep(3000);*/
 
       }
 

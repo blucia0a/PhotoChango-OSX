@@ -17,6 +17,7 @@
 #include "BeatChango.h"
 #include "WaveChango.h"
 #include "MIDIChango.h"
+#include "tones.h"
 #include <pthread.h>
 #include <unistd.h>
 
@@ -55,6 +56,59 @@ void handleFullScreen(){
 
 }
 
+
+float DbLydian[] = {
+                     Csharp2, Csharp2, Dsharp2, Dsharp2, F2, F2,  G2, G2,  Gsharp2, Gsharp2,
+                     Csharp2, Csharp2, Dsharp2, Dsharp2, F2, F2,  G2, G2,  Gsharp2, Gsharp2,
+                     Asharp2, Asharp2, C2, C2, Csharp3, Csharp3,  Dsharp3, Dsharp3, F3, F3,
+                     Asharp2, Asharp2, C2, C2, Csharp3, Csharp3,  Dsharp3, Dsharp3, F3, F3,
+                     G3, G3, Gsharp3, Gsharp3, Asharp3, Asharp3, C3, C3, Csharp4, Csharp4,
+                     G3, G3, Gsharp3, Gsharp3, Asharp3, Asharp3, C3, C3, Csharp4, Csharp4,
+                     Dsharp4, Dsharp4, F4, F4, G4, G4, Gsharp4, Gsharp4, Asharp4, Asharp4,
+                     Dsharp4, Dsharp4, F4, F4, G4, G4, Gsharp4, Gsharp4, Asharp4, Asharp4,
+                     C4, C4, Csharp5, Csharp5, Dsharp5, Dsharp5, F5, F5, G5, G5
+                    };
+
+
+float CMajor[] = { C2, C2,  D2, D2,  E2, E2,  F2, F2, G2, G2,
+                   C2, C2,  D2, D2,  E2, E2,  F2, F2, G2, G2,
+                   A2, A2, B2, B2, C3, C3, D3, D3, E3, E3,
+                   A2, A2, B2, B2, C3, C3, D3, D3, E3, E3,
+                   F3, F3, G3, G3, A3, A3, B3, B3, C4, C4,
+                   F3, F3, G3, G3, A3, A3, B3, B3, C4, C4,
+                   D4, D4, E4, E4, F4, F4, G4, G4, A4, A4,
+                   D4, D4, E4, E4, F4, F4, G4, G4, A4, A4,
+                   B4, B4, C5, C5, D5, D5, E5, E5, G5, G5,
+                   B4, B4, C5, C5, D5, D5, E5, E5, G5, G5
+};
+
+
+void tuneFromFile(int which, float freq){
+    
+
+}
+
+void tune(int which, float freq);
+void setDbLydian(){
+    
+    for( int i = 0; i < 100; i++){
+        
+        tune(i,DbLydian[i]);
+        
+    }
+    
+}
+
+void setCMajor(){
+    
+    for( int i = 0; i < 100; i++){
+        
+        tune(i,CMajor[i]);
+        
+    }
+    
+}
+
 int handleKey(){
 
         int key = cvWaitKey (30);
@@ -86,6 +140,19 @@ int handleKey(){
 
         handleFullScreen();
     }
+    
+    if (key == 'd'){
+        
+        setDbLydian();
+        
+    }
+    
+    if (key == 'c'){
+        
+        setCMajor();
+        
+    }
+    
         return NULL;
 
 }
@@ -116,9 +183,15 @@ void onMouse(int event, int x, int y, int flags, void *n){
 }
 
 ChangoGenerator *c;
+
+extern void doRetune(int who, float tone);
+
 void tune(int which, float freq){
     if(c != NULL){
         c->tune(which,freq);
+        int col = which / 5;
+        int row = which % 5;
+        doRetune(col * 5 + row, freq);
     }
 }
 

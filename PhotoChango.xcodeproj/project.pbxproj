@@ -51,6 +51,8 @@
 		375FBB5316A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4616A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib */; };
 		375FBB5416A2C473004E1695 /* libopencv_photo.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4716A2C473004E1695 /* libopencv_photo.2.4.3.dylib */; };
 		375FBB5516A2C473004E1695 /* libopencv_flann.2.4.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 375FBB4816A2C473004E1695 /* libopencv_flann.2.4.3.dylib */; };
+		37EF65E5170546D700734786 /* Chango_Icon72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 37EF65E4170546D700734786 /* Chango_Icon72x72.png */; };
+		37EF65E71705488900734786 /* Chango_Icon72x72.icns in Resources */ = {isa = PBXBuildFile; fileRef = 37EF65E61705488900734786 /* Chango_Icon72x72.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		375FBB4616A2C473004E1695 /* libopencv_objdetect.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_objdetect.2.4.3.dylib; sourceTree = "<group>"; };
 		375FBB4716A2C473004E1695 /* libopencv_photo.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_photo.2.4.3.dylib; sourceTree = "<group>"; };
 		375FBB4816A2C473004E1695 /* libopencv_flann.2.4.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_flann.2.4.3.dylib; path = ../../../../../usr/local/lib/libopencv_flann.2.4.3.dylib; sourceTree = "<group>"; };
+		37EF65E4170546D700734786 /* Chango_Icon72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chango_Icon72x72.png; sourceTree = "<group>"; };
+		37EF65E61705488900734786 /* Chango_Icon72x72.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Chango_Icon72x72.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +244,7 @@
 		370B9C2A16A212FD008B2CB6 /* PhotoChango */ = {
 			isa = PBXGroup;
 			children = (
+				37EF65E4170546D700734786 /* Chango_Icon72x72.png */,
 				375FBB2416A2BA7C004E1695 /* miditones.h */,
 				375FBB2116A2BA28004E1695 /* BeatWave.cpp */,
 				375FBB2216A2BA28004E1695 /* BeatWave.h */,
@@ -283,6 +288,7 @@
 		370B9C2B16A212FD008B2CB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37EF65E61705488900734786 /* Chango_Icon72x72.icns */,
 				370B9C2C16A212FD008B2CB6 /* PhotoChango-Info.plist */,
 				370B9C2D16A212FD008B2CB6 /* InfoPlist.strings */,
 				370B9C3016A212FD008B2CB6 /* main.m */,
@@ -385,6 +391,8 @@
 				370B9C2F16A212FD008B2CB6 /* InfoPlist.strings in Resources */,
 				370B9C3516A212FD008B2CB6 /* Credits.rtf in Resources */,
 				370B9C3B16A212FE008B2CB6 /* MainMenu.xib in Resources */,
+				37EF65E5170546D700734786 /* Chango_Icon72x72.png in Resources */,
+				37EF65E71705488900734786 /* Chango_Icon72x72.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

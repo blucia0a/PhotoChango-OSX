@@ -44,6 +44,17 @@ static float tones[NUM_WAVES] = { Asharp3, Asharp3, C3, C3, D3, D3, Dsharp3, Dsh
                                    G5,      G5,      Gsharp5, Gsharp5, A5, A5, C5,      C5,      Gsharp6, Gsharp6};*/
 
 
+static float tones[NUM_WAVES] = { C3, C3, A3, A3, F4, F4, D5, D5, B5, B5,
+                                  C3, C3, A3, A3, F4, F4, D5, D5, B5, B5,
+                                  D3, D3, B3, B3, G4, G4, E5, E5, C6, C6,
+                                  D3, D3, B3, B3, G4, G4, E5, E5, C6, C6,
+                                  E3, E3, C4, C4, A4, A4, F5, F5, D6, D6,
+                                  E3, E3, C4, C4, A4, A4, F5, F5, D6, D6,
+                                  F3, F3, D4, D4, B4, B4, G5, G5, E6, E6,
+                                  F3, F3, D4, D4, B4, B4, G5, G5, E6, E6,
+                                  G3, G3, E4, E4, C5, C5, A5, A5, F6, F6,
+                                  G3, G3, E4, E4, C5, C5, A5, A5, F6, F6};
+/*
 static float tones[NUM_WAVES] = {  C3,      C3,      Fsharp3, Fsharp3, D3, D3, Dsharp3, Dsharp3, Gsharp3, Gsharp3,
                                    C3,      C3,      Fsharp3, Fsharp3, D3, D3, Dsharp3, Dsharp3, Gsharp3, Gsharp3,
     
@@ -57,7 +68,7 @@ static float tones[NUM_WAVES] = {  C3,      C3,      Fsharp3, Fsharp3, D3, D3, D
                                    C5,      C5,      Csharp5, Csharp5, D5, D5, Dsharp5, Dsharp5, F5, F5,
     
                                    F5,      F5,      Gsharp5, Gsharp5, Asharp5, Asharp5, C5,      C5,      F6, F6,
-                                   F5,      F5,      Gsharp5, Gsharp5, Asharp5, Asharp5, C5,      C5,      F6, F6};
+                                   F5,      F5,      Gsharp5, Gsharp5, Asharp5, Asharp5, C5,      C5,      F6, F6};*/
 
 /*BAT TRIP JAVA
 static float tones[NUM_WAVES] = {  Cplus3,      Cplus3,      Dplus3, Dplus3, E3, E3, Fplus3, Fplus3, E3, E3,
