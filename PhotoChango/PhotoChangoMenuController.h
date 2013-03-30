@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 extern unsigned long SCREEN_WIDTH;
 extern unsigned long SCREEN_HEIGHT;
+extern float toneSets[100][10];
+
 @interface PhotoChangoMenuController : NSObject
 {
     
@@ -20,8 +22,13 @@ extern unsigned long SCREEN_HEIGHT;
 
     NSPathControl *filePath;
     
+    NSMatrix *toneSet;
+    
 }
+- (IBAction)toneSetSelected:(id)sender;
+- (IBAction)applySelectedToneSet:(id)sender;
 
+- (IBAction)saveToneFile:(id)sender;
 - (IBAction)loadToneFile:(id)sender;
 - (IBAction)goFullScreen:(id)sender;
 - (void) reTuneEmitter:(int)which toTone:(float)tone;
@@ -39,4 +46,5 @@ extern unsigned long SCREEN_HEIGHT;
 @property (copy) IBOutlet NSTextField *toneFileField;
 
 @property (assign) IBOutlet NSPathControl *filePath;
+@property (assign) IBOutlet NSMatrix *toneSet;
 @end

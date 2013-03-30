@@ -11,14 +11,19 @@
 
 void Changomain(int argc, char **argv);
 void tune(int which, float freq);
+void tuneToToneSet(int which);
 void handleFullScreen();
+void processToneFileOpen(const char *string, int index);
+void processToneFileSave(const char *string, int index);
+
 static NSDictionary *toneMap;
 AppDelegate *me;
 
 @implementation PhotoChangoMenuController
 //@synthesize radioMatrix;
 //@synthesize toneFileField;
-@synthesize filePath;
+//@synthesize toneSet;
+//@synthesize filePath;
 
 
 
@@ -146,6 +151,107 @@ AppDelegate *me;
     
 }
 
+- (IBAction)toneSetSelected:(id)sender {
+}
+
+- (IBAction)applySelectedToneSet:(id)sender {
+    
+    long tset = [[toneSet selectedCell] tag] - 1;
+    
+    fprintf(stderr,"got in here with tset = %ld\n",tset);
+    int cell = 1;
+    
+    for(int i = 0; i < 10; i+=2){
+        for(int j = 0; j < 10; j+=2){
+        
+        float val = toneSets[i*10 + j][tset];
+        fprintf(stderr,"the value here is %f\n",val);
+        
+
+        int radioTag = cell;
+        
+        NSNumber *n = [NSNumber numberWithFloat:val];
+        NSArray *temp = [toneMap allKeys];
+        NSString *actualKey = NULL;
+        for( NSString *k in temp){
+            
+            NSNumber *num = [toneMap objectForKey:k];
+            if( [num floatValue] == val){
+                
+                actualKey = k;
+                
+                break;
+                
+            }
+
+        }
+        if( actualKey != NULL){
+
+            [[radioMatrix cellWithTag: (radioTag)] setTitle: actualKey];
+            
+        }
+            
+        cell++;
+        }
+
+    }
+
+    tuneToToneSet(tset);
+    
+    
+    
+}
+
+- (IBAction)saveToneFile:(id)sender {
+    
+    int cell = [[toneSet selectedCell] tag] - 1;
+    fprintf(stderr,"here1\n");
+    for(int i = 0; i < 25; i++){
+    
+        fprintf(stderr,"here2\n");
+        
+        int radioTag = i + 1;
+        fprintf(stderr,"here2.1\n");
+        
+        NSString *radioLab = [[radioMatrix cellWithTag:radioTag] title];
+        
+        fprintf(stderr,"here2.2\n");
+        
+        float val = [[toneMap objectForKey:radioLab] floatValue];
+        
+        const char *s = [radioLab cStringUsingEncoding:NSStringEncodingConversionAllowLossy];
+        
+        fprintf(stderr,"here2.3 - got Val %f for key %s\n", val, s);
+        
+        int col = i / 5;
+        int row = i % 5;
+
+        toneSets[col * 20 + row*2][cell] = val;
+        toneSets[col * 20 + row*2 + 1][cell] = val;
+        toneSets[col * 20 + row*2 + 10][cell] = val;
+        toneSets[col * 20 + row*2 + 11][cell] = val;
+        
+    }
+    
+    fprintf(stderr,"here3 and cell was %d\n",cell);
+    NSSavePanel *panel = [NSSavePanel savePanel];
+    NSInteger clicked = [panel runModal];
+    if( clicked == NSFileHandlingPanelOKButton ){
+        
+        
+        NSString *thePath = [panel filename];
+        
+        [[toneSet selectedCell] setTitle:thePath];
+            
+        processToneFileSave([thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy], cell);
+        processToneFileOpen([thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy], cell);
+        
+        
+    }
+
+    
+}
+
 - (IBAction)loadToneFile:(id)sender {
     
     NSOpenPanel *panel = [NSOpenPanel openPanel];
@@ -157,11 +263,17 @@ AppDelegate *me;
         
         for(NSURL *url in [panel URLs]){
             
-            fprintf(stderr,"Tone File is: %s\n",[[url path] cStringUsingEncoding:NSStringEncodingConversionAllowLossy]);
+            NSString *thePath = [url path];
+            
+            [[toneSet selectedCell] setTitle:thePath];
+            
+            processToneFileOpen([thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy], [[toneSet selectedCell] tag] - 1);
             
         }
         
     }
+    
+
     
 }
 

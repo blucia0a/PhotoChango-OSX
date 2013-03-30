@@ -35,6 +35,54 @@ unsigned long SCREEN_WIDTH;
 
 }
 
+float toneSets[100][10];
+bool validToneSet[10] = {false, false, false, false, false, false, false, false, false, false};
+void processToneFileOpen(const char *string, int index){
+
+    fprintf(stderr,"Hi baby.  Setting %d to %s\n",index, string);
+    FILE *f = fopen(string, "r");
+    float toneVal;
+    int i = 0;
+    while( fscanf(f,"%f\n", &toneVal) != EOF && i < 100 ){
+        
+        fprintf(stderr,"the thing was <%f>\n", toneVal);
+        toneSets[i++][index] = toneVal;
+        
+    }
+    fclose(f);
+    validToneSet[index] = true;
+    
+}
+
+void processToneFileSave(const char *string, int index){
+ 
+    FILE *f = fopen(string, "w");
+    
+    for( int i = 0; i < 100; i++){
+        
+        fprintf(f,"%f\n",toneSets[i][index]);
+        
+    }
+    fclose(f);
+    
+}
+
+
+void tune(int which, float freq);
+void tuneToToneSet(int which){
+
+    if( validToneSet[which] == true ){
+        
+        for( int i = 0; i < 100; i++){
+            
+            tune(i,toneSets[i][which]);
+            
+        }
+        
+    }
+
+}
+
 void handleFullScreen(){
   
     if(fullScreen){
@@ -88,7 +136,7 @@ void tuneFromFile(int which, float freq){
 
 }
 
-void tune(int which, float freq);
+
 void setDbLydian(){
     
     for( int i = 0; i < 100; i++){
