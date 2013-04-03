@@ -4,8 +4,8 @@
 #include <opencv/cv.h>
 #include "ChangoGlobal.h"
 
-#define NUM_XSTEPS 10
-#define NUM_YSTEPS 10
+#define NUM_XSTEPS 5
+#define NUM_YSTEPS 5
 
 void pixelate(IplImage *gimg, float *vals)
 {

@@ -161,10 +161,10 @@ AppDelegate *me;
     fprintf(stderr,"got in here with tset = %ld\n",tset);
     int cell = 1;
     
-    for(int i = 0; i < 10; i+=2){
-        for(int j = 0; j < 10; j+=2){
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
         
-        float val = toneSets[i*10 + j][tset];
+        float val = toneSets[i*5 + j][tset];
         fprintf(stderr,"the value here is %f\n",val);
         
 
@@ -226,10 +226,10 @@ AppDelegate *me;
         int col = i / 5;
         int row = i % 5;
 
-        toneSets[col * 20 + row*2][cell] = val;
-        toneSets[col * 20 + row*2 + 1][cell] = val;
-        toneSets[col * 20 + row*2 + 10][cell] = val;
-        toneSets[col * 20 + row*2 + 11][cell] = val;
+        toneSets[col * 5 + row][cell] = val;
+        //toneSets[col * 20 + row*2 + 1][cell] = val;
+        //toneSets[col * 20 + row*2 + 10][cell] = val;
+        //toneSets[col * 20 + row*2 + 11][cell] = val;
         
     }
     
@@ -303,13 +303,13 @@ void doRetune(int emitter, float tone) {
     
     int col = which / 5;
     int row = which % 5;
-    tune(col * 20 + row*2,val);
-    tune(col * 20 + row*2 + 1,val);
-    tune(col * 20 + row*2 + 10,val);
-    tune(col * 20 + row*2 + 11,val);
+    tune(col * 5 + row,val);
+    //tune(col * 20 + row*2 + 1,val);
+    //tune(col * 20 + row*2 + 10,val);
+    //tune(col * 20 + row*2 + 11,val);
     
    
-    fprintf(stderr,"%d %d %d %d\n",col*20+row*2, col*20+row*2+1, col*20+row*2+10, col*20+row*2+11);
+    fprintf(stderr,"%d %d %d %d\n",col*5+row);
     
     NSString *a = [sender stringValue];
     

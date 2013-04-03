@@ -35,7 +35,7 @@ unsigned long SCREEN_WIDTH;
 
 }
 
-float toneSets[100][10];
+float toneSets[NUM_WAVES][10];
 bool validToneSet[10] = {false, false, false, false, false, false, false, false, false, false};
 void processToneFileOpen(const char *string, int index){
 
@@ -43,7 +43,7 @@ void processToneFileOpen(const char *string, int index){
     FILE *f = fopen(string, "r");
     float toneVal;
     int i = 0;
-    while( fscanf(f,"%f\n", &toneVal) != EOF && i < 100 ){
+    while( fscanf(f,"%f\n", &toneVal) != EOF && i < NUM_WAVES ){
         
         fprintf(stderr,"the thing was <%f>\n", toneVal);
         toneSets[i++][index] = toneVal;
@@ -58,7 +58,7 @@ void processToneFileSave(const char *string, int index){
  
     FILE *f = fopen(string, "w");
     
-    for( int i = 0; i < 100; i++){
+    for( int i = 0; i < NUM_WAVES; i++){
         
         fprintf(f,"%f\n",toneSets[i][index]);
         
@@ -73,7 +73,7 @@ void tuneToToneSet(int which){
 
     if( validToneSet[which] == true ){
         
-        for( int i = 0; i < 100; i++){
+        for( int i = 0; i < NUM_WAVES; i++){
             
             tune(i,toneSets[i][which]);
             
@@ -139,7 +139,7 @@ void tuneFromFile(int which, float freq){
 
 void setDbLydian(){
     
-    for( int i = 0; i < 100; i++){
+    for( int i = 0; i < NUM_WAVES; i++){
         
         tune(i,DbLydian[i]);
         
@@ -149,7 +149,7 @@ void setDbLydian(){
 
 void setCMajor(){
     
-    for( int i = 0; i < 100; i++){
+    for( int i = 0; i < NUM_WAVES; i++){
         
         tune(i,CMajor[i]);
         

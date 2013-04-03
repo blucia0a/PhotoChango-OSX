@@ -11,17 +11,7 @@ static float lastvals[NUM_WAVES];
 static float mtones[NUM_WAVES] = {  mC3,      mC3,      mCsharp3, mCsharp3, mD3, mD3, mDsharp3, mDsharp3, mG3, mG3,
                                    mC3,      mC3,      mCsharp3, mCsharp3, mD3, mD3, mDsharp3, mDsharp3, mG3, mG3, 
 	                             
-                                   mGsharp3, mGsharp3, mA3,      mA3,      mC4, mC4, mCsharp4, mCsharp4, mD4, mD4,
-                                   mGsharp3, mGsharp3, mA3,      mA3,      mC4, mC4, mCsharp4, mCsharp4, mD4, mD4,
-
-                                   mDsharp4, mDsharp4, mF4,      mF4,      mG4, mG4, mGsharp4, mGsharp4, mA4, mA4,
-                                   mDsharp4, mDsharp4, mF4,      mF4,      mG4, mG4, mGsharp4, mGsharp4, mA4, mA4,
-
-                                   mC5,      mC5,      mCsharp5, mCsharp5, mD5, mD5, mDsharp5, mDsharp5, mF5, mF5,
-                                   mC5,      mC5,      mCsharp5, mCsharp5, mD5, mD5, mDsharp5, mDsharp5, mF5, mF5,
-
-                                   mG5,      mG5,      mGsharp5, mGsharp5, mA5, mA5, mC5,      mC5,      mGsharp6, mGsharp6,
-                                   mG5,      mG5,      mGsharp5, mGsharp5, mA5, mA5, mC5,      mC5,      mGsharp6, mGsharp6};
+                                   mGsharp3, mGsharp3, mA3,      mA3,      mC4};
  
 
 MIDIPortRef outputPort;
