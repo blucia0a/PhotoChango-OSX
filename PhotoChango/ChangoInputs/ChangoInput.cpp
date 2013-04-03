@@ -1,4 +1,5 @@
-#include <OpenCV/OpenCV.h>
+#include <opencv/cv.h>
+#include <opencv/highgui.h>
 #include "ChangoInput.h"
 extern void onMouse(int event, int x, int y, int flags, void *n);
 

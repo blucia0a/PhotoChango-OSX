@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include <OpenCV/OpenCV.h>
+#include <opencv/cv.h>
 #include "ChangoGlobal.h"
 
 #define NUM_XSTEPS 10

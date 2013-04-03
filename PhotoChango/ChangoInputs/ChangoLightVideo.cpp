@@ -1,4 +1,5 @@
-#include <OpenCV/OpenCV.h>
+#include <opencv/cv.h>
+#include <opencv/highgui.h>
 #include <cassert>
 #include <iostream>
 #include "Pixelator.h"

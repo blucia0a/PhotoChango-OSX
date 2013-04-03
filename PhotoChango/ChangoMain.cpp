@@ -7,7 +7,7 @@
  *
  */
 //#include <OpenCV/OpenCV.h>
-#include <opencv/opencv.h>
+#include <opencv/cv.h>
 //#include <opencv/highgui.h>
 #include <opencv2/highgui/highgui_c.h>
 #include "mahalo.h"

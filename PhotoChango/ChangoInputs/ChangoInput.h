@@ -8,7 +8,7 @@
  */
 #include "mahalo.h"
 #include "ChangoGenerator.h"
-#include <OpenCV/OpenCV.h>
+#include <opencv/cv.h>
 class ChangoInput{
 
 protected:
