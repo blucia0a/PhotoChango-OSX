@@ -13,7 +13,7 @@ BeatWave::BeatWave(double frq, double srate, double amp = 0.5){
 	
     //Sample rate is passed in from the HAL deviceInfo structure
     this->srate = srate;
-    this->sampleLenIn_us = 1.0 / this->srate * 1000000;
+    this->sampleLenIn_us = 1.0f / this->srate * 1000000;
     this->elapsedSamples = 0;
     this->playing = true;
 	

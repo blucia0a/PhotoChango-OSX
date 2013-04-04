@@ -29,8 +29,8 @@ OSStatus sappIOProc (AudioDeviceID  inDevice, const AudioTimeStamp*  inNow, cons
         out[1] = 0;
       }
       
-      out[0] = out[0] * (1.0 - def->panz);
-      out[1] = out[1] * def->panz;
+      out[0] = out[0] * (1.0f - (float)def->panz);
+      out[1] = out[1] * (float)def->panz;
       
       //move the output pointer ahead in the hardware buffer
       out++; out++;
@@ -49,7 +49,7 @@ Mahalo::Mahalo(){
 }
 
 float Mahalo::getRate(){
-  return this->deviceFormat.mSampleRate;
+  return (float)this->deviceFormat.mSampleRate;
 }
 
 void Mahalo::setSampleSource(SampleSource *s){

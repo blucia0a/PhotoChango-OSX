@@ -34,7 +34,7 @@ AppDelegate *me;
     me = sender;
     
     NSArray *screenArray = [NSScreen screens];
-    NSScreen *mainScreen = [NSScreen mainScreen];
+    
     unsigned long screenCount = [screenArray count];
     
     
@@ -42,7 +42,7 @@ AppDelegate *me;
     {
         NSScreen *screen = [screenArray objectAtIndex: index];
         NSRect screenRect = [screen visibleFrame];
-        NSString *mString = ((mainScreen == screen) ? @"Main" : @"not-main");
+        
         SCREEN_HEIGHT = screenRect.size.height;
         SCREEN_WIDTH = screenRect.size.width;
         //NSLog(@"Screen #%ld (%@) Frame: %@", index, mString, NSStringFromRect(screenRect));
@@ -142,7 +142,7 @@ AppDelegate *me;
 }
 
 - (IBAction)cellChanged:(id)sender {
-    which = [[sender selectedCell] tag] - 1;
+
 }
 
 - (IBAction)goFullScreen:(id)sender {
@@ -170,7 +170,7 @@ AppDelegate *me;
 
         int radioTag = cell;
         
-        NSNumber *n = [NSNumber numberWithFloat:val];
+       
         NSArray *temp = [toneMap allKeys];
         NSString *actualKey = NULL;
         for( NSString *k in temp){
@@ -196,7 +196,7 @@ AppDelegate *me;
 
     }
 
-    tuneToToneSet(tset);
+    tuneToToneSet((int)tset);
     
     
     
@@ -204,32 +204,30 @@ AppDelegate *me;
 
 - (IBAction)saveToneFile:(id)sender {
     
-    int cell = [[toneSet selectedCell] tag] - 1;
+    int cell = (int)[[toneSet selectedCell] tag] - 1;
     fprintf(stderr,"here1\n");
     for(int i = 0; i < 25; i++){
     
         fprintf(stderr,"here2\n");
         
         int radioTag = i + 1;
-        fprintf(stderr,"here2.1\n");
+        fprintf(stderr,"here2.1 %d\n", radioTag);
         
         NSString *radioLab = [[radioMatrix cellWithTag:radioTag] title];
         
-        fprintf(stderr,"here2.2\n");
+      
         
         float val = [[toneMap objectForKey:radioLab] floatValue];
         
-        const char *s = [radioLab cStringUsingEncoding:NSStringEncodingConversionAllowLossy];
+      
         
-        fprintf(stderr,"here2.3 - got Val %f for key %s\n", val, s);
+      
         
         int col = i / 5;
         int row = i % 5;
 
         toneSets[col * 5 + row][cell] = val;
-        //toneSets[col * 20 + row*2 + 1][cell] = val;
-        //toneSets[col * 20 + row*2 + 10][cell] = val;
-        //toneSets[col * 20 + row*2 + 11][cell] = val;
+     
         
     }
     
@@ -267,7 +265,7 @@ AppDelegate *me;
             
             [[toneSet selectedCell] setTitle:thePath];
             
-            processToneFileOpen([thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy], [[toneSet selectedCell] tag] - 1);
+            processToneFileOpen([thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy], (int)[[toneSet selectedCell] tag] - 1);
             
         }
         
@@ -298,18 +296,15 @@ void doRetune(int emitter, float tone) {
 }
 
 - (IBAction)FreqSelected:(NSComboBox *)sender {
-    fprintf(stderr,"%ld %f\n",which,[[ toneMap objectForKey:([sender stringValue])] doubleValue] );
+    
+    int which = (int)[[radioMatrix selectedCell] tag] - 1;
+    
     double val = [[ toneMap objectForKey:([sender stringValue])] doubleValue];
     
     int col = which / 5;
     int row = which % 5;
-    tune(col * 5 + row,val);
-    //tune(col * 20 + row*2 + 1,val);
-    //tune(col * 20 + row*2 + 10,val);
-    //tune(col * 20 + row*2 + 11,val);
+    tune(col * 5 + row, (float)val);
     
-   
-    fprintf(stderr,"%d %d %d %d\n",col*5+row);
     
     NSString *a = [sender stringValue];
     

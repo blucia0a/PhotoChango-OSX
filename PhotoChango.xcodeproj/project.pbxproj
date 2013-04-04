@@ -705,7 +705,10 @@
 				INFOPLIST_FILE = "PhotoChango/PhotoChango-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "";
+				OTHER_CFLAGS = (
+					"-Wno-deprecated",
+					"-O3",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "i386 $(ARCHS_STANDARD_64_BIT)";
 				WRAPPER_EXTENSION = app;
@@ -727,7 +730,10 @@
 				INFOPLIST_FILE = "PhotoChango/PhotoChango-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
+				OTHER_CFLAGS = (
+					"-Wno-deprecated",
+					"-O3",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALID_ARCHS = "i386 $(ARCHS_STANDARD_64_BIT)";
 				WRAPPER_EXTENSION = app;

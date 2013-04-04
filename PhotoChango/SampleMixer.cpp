@@ -15,14 +15,14 @@ SampleMixer::SampleMixer(){
   numSources = 0;
   srcs = (SampleSource **)malloc(sizeof(SampleSource *) * MIXER_MAX_SRCS);
   memset(srcs,0,sizeof(SampleSource *) * MIXER_MAX_SRCS);
-  this->amp = 1.0;
+  this->amp = 1.0f;
    
 }
 
 void SampleMixer::Mix(int numSources, SampleSource **srcs, float *out){
 	
-	out[0] = 0.0; //left
-	out[1] = 0.0; //right
+	out[0] = 0.0f; //left
+	out[1] = 0.0f; //right
 	for(int i = 0; i < numSources; i++){
 		float o[2];
 	    srcs[i]->getNextSample(o);

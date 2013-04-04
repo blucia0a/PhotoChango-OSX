@@ -36,7 +36,7 @@ double Wave::getRate(){
 
 void Wave::getNextSample(float *out){
 	
-  float wave = sin(this->phase) * this->ampz;  // generate sine wave
+  float wave = (float)sin(this->phase) * (float)this->ampz;  // generate sine wave
   this->phase = this->phase + this->freqz;  // increment phase
   
   // write output

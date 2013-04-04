@@ -46,10 +46,10 @@ void pixelate(IplImage *gimg, float *vals)
   for(int i = 0; i < NUM_XSTEPS * NUM_YSTEPS; i++ ){
 	  
       favgIntensity[i] = (float)avgIntensity[i]/segPixels;
-	  vals[i] = favgIntensity[i] / 256.;
-	  if(vals[i] < 0.0){ vals[i] = 0.0;}
-	  if(vals[i] > 1.0){ vals[i] = 1.0;}
-	  assert(vals[i] >= 0.0 && vals[i] <= 1.0);
+	  vals[i] = favgIntensity[i] / 256.f;
+	  if(vals[i] < 0.0f){ vals[i] = 0.0f;}
+	  if(vals[i] > 1.0f){ vals[i] = 1.0f;}
+	  assert(vals[i] >= 0.0f && vals[i] <= 1.0f);
 	  
   } 
 

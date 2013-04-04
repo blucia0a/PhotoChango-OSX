@@ -14,7 +14,7 @@ extern float toneSets[100][10];
 @interface PhotoChangoMenuController : NSObject
 {
     
-    NSInteger which;
+   
     
     NSMatrix *radioMatrix;
 

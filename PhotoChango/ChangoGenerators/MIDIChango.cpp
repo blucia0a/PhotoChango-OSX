@@ -22,7 +22,7 @@ MIDIChango::MIDIChango(Mahalo *M){
 
   fprintf(stderr,"DOING THE MIDI THING!\n");
   MIDIClientRef client;
-  OSStatus result = MIDIClientCreate(
+  MIDIClientCreate(
   CFStringCreateWithCString(NULL, "D-Ball's Client", kCFStringEncodingASCII),
   NULL,
   NULL,
@@ -54,10 +54,7 @@ void MIDIChango::update(float *vals){
 
   for( int i = 0; i < NUM_WAVES ; i ++  ){
 
-    //this->srcs[i]->setAmpVal( vals[i] );
-    
-    int which = i % 6; 
-      
+   
       /*On*/
       packetList.numPackets = 1;
       packetList.packet[0].length = 3;
@@ -66,19 +63,7 @@ void MIDIChango::update(float *vals){
       packetList.packet[0].data[2] = ((int)(vals[i]*127)); // velocity
       packetList.packet[0].timeStamp = 0;
       MIDISend(outputPort,eps[i],&packetList); 
-    //if( vals[i] < lastvals[i] ){    
-
-      //printf("%d %d %d 0\n",which,(int)(vals[i] * 127), (int)mtones[i]);
-      
-
-    //}
-    //if( vals[i] != lastvals[i] ){    
-
-      //printf("%d %d %d 1\n",which,(int)(vals[i] * 127), (int)mtones[i]);
-
-    //}
-
-    //lastvals[i] = vals[i];
+   
     fflush(stdout);
 
   }
