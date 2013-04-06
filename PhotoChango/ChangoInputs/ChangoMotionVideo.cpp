@@ -52,7 +52,7 @@ ChangoMotionVideo::ChangoMotionVideo(ChangoGenerator *chan, Mahalo *M)
     IplImage * diff_img_fs = cvCreateImage(cvSize((int)SCREEN_WIDTH,(int)SCREEN_HEIGHT), IPL_DEPTH_8U, 1);
     
     // as long as there are images ...
-    while (fcurrent_frame = cvQueryFrame (camera))
+    while ((fcurrent_frame = cvQueryFrame (camera)))
     {
         cvCvtColor (fcurrent_frame, tframe, CV_BGR2GRAY);
         cvResize(tframe,gray_image);
@@ -76,9 +76,9 @@ ChangoMotionVideo::ChangoMotionVideo(ChangoGenerator *chan, Mahalo *M)
         
         if(fullScreen){
             cvResize(diff_img, diff_img_fs);
-            cvShowImage ( WINDOW_NAME, diff_img_fs);
+            cvShowImage ( WINDOW_NAME_STR, diff_img_fs);
         }else{
-            cvShowImage ( WINDOW_NAME, diff_img);
+            cvShowImage ( WINDOW_NAME_STR, diff_img);
         }
         //cvWriteFrame(writer, diff_img);
 
@@ -93,3 +93,9 @@ ChangoMotionVideo::ChangoMotionVideo(ChangoGenerator *chan, Mahalo *M)
     // be nice and return no error
     return;
 }
+
+ChangoMotionVideo::~ChangoMotionVideo(){
+    
+    
+}
+

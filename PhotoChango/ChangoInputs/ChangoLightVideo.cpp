@@ -53,7 +53,7 @@ ChangoLightVideo::ChangoLightVideo(ChangoGenerator *chan, Mahalo *M)
       assert (current_frame && gray_image);
       
       // as long as there are images ...
-      while (fcurrent_frame = cvQueryFrame (camera))
+      while ((fcurrent_frame = cvQueryFrame (camera)))
       {
 
         cvCvtColor (fcurrent_frame, tframe, CV_BGR2GRAY);
@@ -72,9 +72,9 @@ ChangoLightVideo::ChangoLightVideo(ChangoGenerator *chan, Mahalo *M)
           
         if(fullScreen){
             cvResize(gray_image, img_fs);
-            cvShowImage ( WINDOW_NAME, img_fs);
+            cvShowImage ( WINDOW_NAME_STR, img_fs);
         }else{
-            cvShowImage ( WINDOW_NAME, gray_image);
+            cvShowImage ( WINDOW_NAME_STR, gray_image);
         }
 
 
@@ -87,6 +87,11 @@ ChangoLightVideo::ChangoLightVideo(ChangoGenerator *chan, Mahalo *M)
       }
 
     return;
+}
+
+ChangoLightVideo::~ChangoLightVideo(){
+    
+    
 }
 
 

@@ -89,16 +89,16 @@ void handleFullScreen(){
         
         fprintf(stderr,"going regular screen!\n");
         fullScreen = false;
-        cvSetWindowProperty(WINDOW_NAME, CV_WND_PROP_FULLSCREEN, CV_WINDOW_NORMAL);
-        cvSetWindowProperty(WINDOW_NAME, CV_WND_PROP_ASPECTRATIO, CV_WINDOW_KEEPRATIO);
+        cvSetWindowProperty(WINDOW_NAME_STR, CV_WND_PROP_FULLSCREEN, CV_WINDOW_NORMAL);
+        cvSetWindowProperty(WINDOW_NAME_STR, CV_WND_PROP_ASPECTRATIO, CV_WINDOW_KEEPRATIO);
         
         
     }else{
         
         fprintf(stderr,"going fullscreen!\n");
         fullScreen = true;
-        cvSetWindowProperty(WINDOW_NAME, CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
-        cvSetWindowProperty(WINDOW_NAME, CV_WND_PROP_ASPECTRATIO, CV_WINDOW_FREERATIO);
+        cvSetWindowProperty(WINDOW_NAME_STR, CV_WND_PROP_FULLSCREEN, CV_WINDOW_FULLSCREEN);
+        cvSetWindowProperty(WINDOW_NAME_STR, CV_WND_PROP_ASPECTRATIO, CV_WINDOW_FREERATIO);
     }
 
 
@@ -161,7 +161,7 @@ void onMouse(int event, int x, int y, int flags, void *n){
     p1.y = ybox;
     p2.x = xbox + 47;
     p2.y = ybox + 23;
-    cvShowImage(WINDOW_NAME, img);
+    cvShowImage(WINDOW_NAME_STR, img);
     ci->highlight(p1, p2);
 
   }
@@ -170,14 +170,10 @@ void onMouse(int event, int x, int y, int flags, void *n){
 
 ChangoGenerator *c;
 
-extern void doRetune(int who, float tone);
 
 void tune(int which, float freq){
     if(c != NULL){
         c->tune(which,freq);
-        int col = which / 5;
-        int row = which % 5;
-        doRetune(col * 5 + row, freq);
     }
 }
 
@@ -195,7 +191,7 @@ int Changomain(int argc, char *argv[]){
         
         camera = cvCreateCameraCapture (CV_CAP_ANY);
         //camera = cvCreateCameraCapture (10);
-        cvNamedWindow(WINDOW_NAME,CV_WINDOW_NORMAL);
+        cvNamedWindow(WINDOW_NAME_STR,CV_WINDOW_NORMAL);
  
         /*clv should be loaded from a factory that can be specified on the command line*/ 
         ChangoInput *ci;
@@ -230,6 +226,7 @@ int Changomain(int argc, char *argv[]){
           delete c;
       
         }
+    
     return 0;
 }
 

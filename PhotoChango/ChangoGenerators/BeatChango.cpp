@@ -5,6 +5,9 @@
 #define FULL_PERIOD 1000000
 #define FULL_DURATION 1000000
 
+static double tones[NUM_WAVES] = { C3, C3, A3, A3, F4, F4, D5, D5, B5, B5,
+    C3, C3, A3, A3, F4, F4, D5, D5, B5, B5,
+    D3, D3, B3, B3, G4};
 
 BeatChango::BeatChango(Mahalo *M){
 
@@ -23,6 +26,11 @@ BeatChango::BeatChango(Mahalo *M){
   
   m->setSampleSource(s); 
 
+}
+
+BeatChango::~BeatChango(){
+    
+    
 }
 
 BeatChango::BeatChango(BeatWave **ws, Mahalo *M){

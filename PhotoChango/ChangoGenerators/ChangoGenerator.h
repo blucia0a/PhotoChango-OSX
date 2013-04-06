@@ -14,6 +14,6 @@ class ChangoGenerator{
     /*Will have NUM_SRCS entries*/
     virtual void update(float *vals) = 0;
     virtual void tune(long which, float freq) = 0;
-  
+    virtual ~ChangoGenerator(){};
 };
 #endif

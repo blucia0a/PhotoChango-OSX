@@ -7,12 +7,14 @@
 
 #include "MIDIChango.h"
 #include "miditones.h"
-static float lastvals[NUM_WAVES];
+
 static float mtones[NUM_WAVES] = {  mC3,      mC3,      mCsharp3, mCsharp3, mD3, mD3, mDsharp3, mDsharp3, mG3, mG3,
                                    mC3,      mC3,      mCsharp3, mCsharp3, mD3, mD3, mDsharp3, mDsharp3, mG3, mG3, 
 	                             
                                    mGsharp3, mGsharp3, mA3,      mA3,      mC4};
  
+
+
 
 MIDIPortRef outputPort;
 MIDIEndpointRef eps[6];
@@ -41,6 +43,11 @@ MIDIChango::MIDIChango(Mahalo *M){
   //}
   
   //m->setSampleSource(s); 
+
+}
+
+MIDIChango::~MIDIChango(){
+    
 
 }
 

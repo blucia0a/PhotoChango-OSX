@@ -18,5 +18,6 @@ public:
     /*Constructor should run the input handler and return to end main()*/
     int retVal;
     ChangoInput();
+    virtual ~ChangoInput(){}
     virtual void highlight(CvPoint p1, CvPoint p2) = 0;
 };

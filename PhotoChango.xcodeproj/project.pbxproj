@@ -699,7 +699,7 @@
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Library/Frameworks;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoChango/PhotoChango-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "PhotoChango/PhotoChango-Info.plist";
@@ -724,7 +724,7 @@
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PhotoChango/PhotoChango-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "";
 				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/include;
 				INFOPLIST_FILE = "PhotoChango/PhotoChango-Info.plist";

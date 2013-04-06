@@ -11,5 +11,6 @@ class BeatChango : public ChangoGenerator{
     /*Will have NUM_SRCS entries*/
     virtual void update(float vals[]);
     virtual void tune(long which, float freq);
+    virtual ~BeatChango();
 };
 #endif

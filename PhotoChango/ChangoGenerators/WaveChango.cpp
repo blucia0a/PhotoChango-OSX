@@ -2,6 +2,10 @@
 #include "Wave.h"
 #include "tones.h"
 
+static double tones[NUM_WAVES] = { C3, C3, A3, A3, F4, F4, D5, D5, B5, B5,
+    C3, C3, A3, A3, F4, F4, D5, D5, B5, B5,
+    D3, D3, B3, B3, G4};
+
 
 WaveChango::WaveChango(Mahalo *M){
 
@@ -21,6 +25,12 @@ WaveChango::WaveChango(Mahalo *M){
   m->setSampleSource(s); 
 
 }
+
+WaveChango::~WaveChango(){
+    
+    
+}
+
 
 void WaveChango::tune(long which, float freq){
 

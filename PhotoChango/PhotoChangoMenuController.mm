@@ -20,10 +20,10 @@ static NSDictionary *toneMap;
 AppDelegate *me;
 
 @implementation PhotoChangoMenuController
-//@synthesize radioMatrix;
-//@synthesize toneFileField;
-//@synthesize toneSet;
-//@synthesize filePath;
+@synthesize radioMatrix = _radioMatrix;
+@synthesize toneFileField = _toneFileField;
+@synthesize toneSet = _toneSet;
+@synthesize filePath = _filePath;
 
 
 
@@ -141,9 +141,6 @@ AppDelegate *me;
     
 }
 
-- (IBAction)cellChanged:(id)sender {
-
-}
 
 - (IBAction)goFullScreen:(id)sender {
     
@@ -151,8 +148,6 @@ AppDelegate *me;
     
 }
 
-- (IBAction)toneSetSelected:(id)sender {
-}
 
 - (IBAction)applySelectedToneSet:(id)sender {
     
@@ -287,13 +282,6 @@ AppDelegate *me;
     
 }
 
-
-void doRetune(int emitter, float tone) {
-    
-    
-   
-    
-}
 
 - (IBAction)FreqSelected:(NSComboBox *)sender {
     

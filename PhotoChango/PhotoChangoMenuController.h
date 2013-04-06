@@ -25,26 +25,23 @@ extern float toneSets[100][10];
     NSMatrix *toneSet;
     
 }
-- (IBAction)toneSetSelected:(id)sender;
-- (IBAction)applySelectedToneSet:(id)sender;
 
+- (IBAction)applySelectedToneSet:(id)sender;
 - (IBAction)saveToneFile:(id)sender;
 - (IBAction)loadToneFile:(id)sender;
 - (IBAction)goFullScreen:(id)sender;
-- (void) reTuneEmitter:(int)which toTone:(float)tone;
+- (void) reTuneEmitter:(int)who toTone:(float)tone;
+- (IBAction)FreqSelected:(NSComboBox *)sender;
 
 
 + (void)DoIt:(id)sender;
-+ (void) doRetune:(int)which toTone:(int)tone;
 
-
-- (IBAction)cellChanged:(id)sender;
-- (IBAction)FreqSelected:(NSComboBox *)sender;
 
 @property (assign) IBOutlet NSMatrix *radioMatrix;
-
 @property (copy) IBOutlet NSTextField *toneFileField;
-
 @property (assign) IBOutlet NSPathControl *filePath;
 @property (assign) IBOutlet NSMatrix *toneSet;
+
+
+
 @end

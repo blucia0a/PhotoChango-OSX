@@ -13,7 +13,7 @@ BeatWave::BeatWave(double frq, double srate, double amp = 0.5){
 	
     //Sample rate is passed in from the HAL deviceInfo structure
     this->srate = srate;
-    this->sampleLenIn_us = 1.0f / this->srate * 1000000;
+    this->sampleLenIn_us = 1.0f / (float)this->srate * 1000000;
     this->elapsedSamples = 0;
     this->playing = true;
 	
@@ -45,7 +45,7 @@ double BeatWave::getRate(){
 
 void BeatWave::getNextSample(float *out){
 
-  float wave = sin(this->phase);
+  float wave = (float)sin(this->phase);
   this->elapsedSamples++;
 
   if( this->playing ){
@@ -54,7 +54,7 @@ void BeatWave::getNextSample(float *out){
       this->elapsedSamples = 0;
       this->playing = false;      
     }
-    wave *= this->ampz;  
+    wave *= (float)this->ampz;
 
   }else{
 
