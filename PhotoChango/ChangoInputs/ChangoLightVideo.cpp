@@ -49,6 +49,7 @@ ChangoLightVideo::ChangoLightVideo(ChangoGenerator *chan, Mahalo *M)
       IplImage *  gray_image2    = cvCreateImage(cvSize (current_frame->width, current_frame->height), IPL_DEPTH_8U, 1);
     
       IplImage * img_fs = cvCreateImage(cvSize((int)SCREEN_WIDTH,(int)SCREEN_HEIGHT), IPL_DEPTH_8U, 1);
+    
 
       assert (current_frame && gray_image);
       

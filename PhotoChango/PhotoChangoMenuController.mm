@@ -9,7 +9,7 @@
 #import "PhotoChangoMenuController.h"
 #import "AppDelegate.h"
 
-void Changomain(int argc, char **argv);
+void Changomain(int argc, char **argv, int width, int height);
 void tune(int which, float freq);
 void tuneToToneSet(int which);
 void handleFullScreen();
@@ -17,7 +17,7 @@ void processToneFileOpen(const char *string, int index);
 void processToneFileSave(const char *string, int index);
 
 static NSDictionary *toneMap;
-AppDelegate *me;
+
 
 @implementation PhotoChangoMenuController
 @synthesize radioMatrix;// = _radioMatrix;
@@ -28,25 +28,20 @@ AppDelegate *me;
 
 
 + (void)DoIt:(id)sender{
-    
-    fprintf(stderr,"HI HI HI HI HI");
    
-    me = sender;
-    
     NSArray *screenArray = [NSScreen screens];
     
-    unsigned long screenCount = [screenArray count];
+    //unsigned long screenCount = [screenArray count];
     
     
-    for (unsigned long index = 0; index < screenCount; index++)
-    {
-        NSScreen *screen = [screenArray objectAtIndex: index];
-        NSRect screenRect = [screen visibleFrame];
+
+    NSScreen *screen = [screenArray objectAtIndex: 0];
+    NSRect screenRect = [screen visibleFrame];
         
-        SCREEN_HEIGHT = screenRect.size.height;
-        SCREEN_WIDTH = screenRect.size.width;
-        //NSLog(@"Screen #%ld (%@) Frame: %@", index, mString, NSStringFromRect(screenRect));
-    }
+    int height = screenRect.size.height;
+    int width = screenRect.size.width;
+    NSLog(@"Screen #%ld Frame: %@", 0l,  NSStringFromRect(screenRect));
+
     
     toneMap = [[NSDictionary alloc] initWithObjectsAndKeys:
     [NSNumber numberWithDouble: 32.7032], @"C1",
@@ -137,7 +132,7 @@ AppDelegate *me;
                              nil];
     
     
-    Changomain(0,0);
+    Changomain(0,0, width, height);
     
 }
 

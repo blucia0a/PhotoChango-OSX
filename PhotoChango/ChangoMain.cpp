@@ -27,10 +27,12 @@ bool useMotion = false;
 bool useBeat = false;
 bool fullScreen = false;
 bool done = false;
+
+
 extern "C" {
     
-unsigned long SCREEN_HEIGHT;
-unsigned long SCREEN_WIDTH;
+  unsigned long SCREEN_HEIGHT = 0;
+  unsigned long SCREEN_WIDTH = 0;
 
 }
 
@@ -107,9 +109,19 @@ void handleFullScreen(){
 int handleKey(){
 
         int key = cvWaitKey (30);
-        if (key == 'q' || key == 'Q'){
-          done = true;
-          return -1;
+        if (key == 'p' || key == 'P'){
+           
+            if( !done ){
+                
+                done = true;
+                return -1;
+            
+            }else{
+                
+                done = false;
+                return -1;
+            }
+            
         }
 
         if (key == 'm'){
@@ -177,8 +189,11 @@ void tune(int which, float freq){
     }
 }
 
-int Changomain(int argc, char *argv[]){
+int Changomain(int argc, char *argv[],int width, int height){
 	
+    SCREEN_HEIGHT = height;
+    SCREEN_WIDTH = width;
+    
 	fprintf(stderr,"PhotoChango - Brandon Lucia 2011 - Audiolyze the world! [http://cs.washington.edu/homes/blucia0a]\n");
         if( argc >= 2 ){
           useMotion = true;
@@ -196,7 +211,9 @@ int Changomain(int argc, char *argv[]){
         /*clv should be loaded from a factory that can be specified on the command line*/ 
         ChangoInput *ci;
 	
-
+    while( true ){
+        
+    
         while( !done ){
 
           fprintf(stderr,"Creating a new chango input!\n");
@@ -229,6 +246,11 @@ int Changomain(int argc, char *argv[]){
           delete c;
       
         }
+    
+    
+        handleKey();
+    
+    }
     
     return 0;
 }
