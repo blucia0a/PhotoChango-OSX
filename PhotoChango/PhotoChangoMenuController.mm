@@ -20,10 +20,10 @@ static NSDictionary *toneMap;
 AppDelegate *me;
 
 @implementation PhotoChangoMenuController
-@synthesize radioMatrix = _radioMatrix;
-@synthesize toneFileField = _toneFileField;
-@synthesize toneSet = _toneSet;
-@synthesize filePath = _filePath;
+@synthesize radioMatrix;// = _radioMatrix;
+@synthesize toneFileField;// = _toneFileField;
+@synthesize toneSet;// = _toneSet;
+@synthesize filePath;// = _filePath;
 
 
 
@@ -271,6 +271,8 @@ AppDelegate *me;
 }
 
 
+
+
 - (void) reTuneEmitter:(int)who toTone:(float)tone {
     
     fprintf(stderr,"Setting %d to %f",who,tone);
@@ -283,18 +285,28 @@ AppDelegate *me;
 }
 
 
+
 - (IBAction)FreqSelected:(NSComboBox *)sender {
     
     int which = (int)[[radioMatrix selectedCell] tag] - 1;
     
+    fprintf(stderr,"which is %d\n",which);
+    
     double val = [[ toneMap objectForKey:([sender stringValue])] doubleValue];
+    
+    fprintf(stderr,"setting to %lf\n",val);
     
     int col = which / 5;
     int row = which % 5;
+    
+    fprintf(stderr,"tune() w/ col = %d, row = %d\n",col,row);
+    
     tune(col * 5 + row, (float)val);
     
+    fprintf(stderr,"and setting that little label to ");
     
     NSString *a = [sender stringValue];
+    
     
     [[radioMatrix selectedCell] setTitle: a];
     

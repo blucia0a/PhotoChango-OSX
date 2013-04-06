@@ -6,9 +6,8 @@
  *  Copyright 2011 __MyCompanyName__. All rights reserved.
  *
  */
-//#include <OpenCV/OpenCV.h>
+
 #include <opencv/cv.h>
-//#include <opencv/highgui.h>
 #include <opencv2/highgui/highgui_c.h>
 #include "mahalo.h"
 #include "ChangoInput.h"
@@ -174,6 +173,7 @@ ChangoGenerator *c;
 void tune(int which, float freq){
     if(c != NULL){
         c->tune(which,freq);
+        
     }
 }
 
@@ -215,11 +215,14 @@ int Changomain(int argc, char *argv[]){
           }
 
           if( !useMotion ){
+              
             ci = new ChangoLightVideo(c,m);
+          
           }else{
-            ci = new ChangoMotionVideo(c,m);
+          
+              ci = new ChangoMotionVideo(c,m);
+          
           }
-
 
           delete ci;
           m->src = NULL;

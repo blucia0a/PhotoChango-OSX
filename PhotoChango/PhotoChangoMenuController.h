@@ -14,8 +14,6 @@ extern float toneSets[100][10];
 @interface PhotoChangoMenuController : NSObject
 {
     
-   
-    
     NSMatrix *radioMatrix;
 
     NSTextField *toneFileField;
@@ -37,10 +35,10 @@ extern float toneSets[100][10];
 + (void)DoIt:(id)sender;
 
 
-@property (assign) IBOutlet NSMatrix *radioMatrix;
-@property (copy) IBOutlet NSTextField *toneFileField;
-@property (assign) IBOutlet NSPathControl *filePath;
-@property (assign) IBOutlet NSMatrix *toneSet;
+@property (strong) IBOutlet NSMatrix *radioMatrix;
+@property (strong) IBOutlet NSTextField *toneFileField;
+@property (strong) IBOutlet NSPathControl *filePath;
+@property (strong) IBOutlet NSMatrix *toneSet;
 
 
 
