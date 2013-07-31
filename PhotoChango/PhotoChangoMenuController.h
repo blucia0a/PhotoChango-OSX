@@ -14,6 +14,8 @@ extern float toneSets[100][10];
 @interface PhotoChangoMenuController : NSObject
 {
     
+    NSTextField *midiFileLabel;
+    
     NSMatrix *radioMatrix;
 
     NSTextField *toneFileField;
@@ -22,8 +24,15 @@ extern float toneSets[100][10];
     
     NSMatrix *toneSet;
     
+    __weak NSSlider *_amplitudeThresholdSlider;
+    
+    __weak NSTextField *_thresholdLabel;
+    __weak NSTextFieldCell *_midiInputLabel;
 }
+- (IBAction)setMIDICaptureFile:(id)sender;
+- (IBAction)applyMIDICaptureFile:(id)sender;
 
+- (IBAction)sliderChange:(id)sender;
 - (IBAction)applySelectedToneSet:(id)sender;
 - (IBAction)saveToneFile:(id)sender;
 - (IBAction)loadToneFile:(id)sender;
@@ -42,4 +51,8 @@ extern float toneSets[100][10];
 
 
 
+@property (weak) IBOutlet NSSlider *amplitudeThresholdSlider;
+@property (weak) IBOutlet NSTextField *thresholdLabel;
+@property (weak) IBOutlet NSTextField *midiFileLabel;
+@property (weak) IBOutlet NSTextFieldCell *midiInputLabel;
 @end

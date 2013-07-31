@@ -13,8 +13,12 @@ void Changomain(int argc, char **argv, int width, int height);
 void tune(int which, float freq);
 void tuneToToneSet(int which);
 void handleFullScreen();
+void handleCameraSelection(int cameraNumber);
 void processToneFileOpen(const char *string, int index);
 void processToneFileSave(const char *string, int index);
+void setAmplitudeThreshold(float newthresh);
+float getToneFromToneSet(int set, int tone);
+void setToneInToneSet(int set, int tone, float f);
 
 static NSDictionary *toneMap;
 
@@ -24,6 +28,8 @@ static NSDictionary *toneMap;
 @synthesize toneFileField;// = _toneFileField;
 @synthesize toneSet;// = _toneSet;
 @synthesize filePath;// = _filePath;
+@synthesize amplitudeThresholdSlider;
+@synthesize thresholdLabel;
 
 
 
@@ -144,52 +150,192 @@ static NSDictionary *toneMap;
 }
 
 
-- (IBAction)applySelectedToneSet:(id)sender {
+#define MIDI_TONE_INDEX 10
+- (IBAction)setMIDICaptureFile:(id)sender {
+  //TODO: Get file selected using modal dialogue
+  //TODO: Update text in box to show filename
+  //TODO: Store name of MIDI Capture file in a variable
+  NSOpenPanel *panel = [NSOpenPanel openPanel];
+  [panel setCanChooseFiles:YES];
+  [panel setCanChooseDirectories:NO];
+  [panel setAllowsMultipleSelection:NO];
+  NSInteger clicked = [panel runModal];
+  if( clicked == NSFileHandlingPanelOKButton ){
     
-    long tset = [[toneSet selectedCell] tag] - 1;
-    
-    fprintf(stderr,"got in here with tset = %ld\n",tset);
-    int cell = 1;
-    
-    for(int i = 0; i < 5; i++){
-        for(int j = 0; j < 5; j++){
-        
-        float val = toneSets[i*5 + j][tset];
-        fprintf(stderr,"the value here is %f\n",val);
-        
-
-        int radioTag = cell;
-        
-       
-        NSArray *temp = [toneMap allKeys];
-        NSString *actualKey = NULL;
-        for( NSString *k in temp){
-            
-            NSNumber *num = [toneMap objectForKey:k];
-            if( [num floatValue] == val){
-                
-                actualKey = k;
-                
-                break;
-                
-            }
-
-        }
-        if( actualKey != NULL){
-
-            [[radioMatrix cellWithTag: (radioTag)] setTitle: actualKey];
-            
-        }
-            
-        cell++;
-        }
-
+    for(NSURL *url in [panel URLs]){
+      
+      NSString *thePath = [url path];
+      
+      if (thePath == NULL){ continue; }
+      
+      [_midiInputLabel setStringValue:thePath];
+      
+      fprintf(stderr,"<<<%s>>>\n",[thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy]);
+      
+      processToneFileOpen([thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy], MIDI_TONE_INDEX);
+      
     }
+    
+  }
 
-    tuneToToneSet((int)tset);
+
+  
+}
+
+- (IBAction)applyMIDICaptureFile:(id)sender {
+  //TODO: Load tone data from file named by MIDI Capture file variable
+  //TODO: Apply tone data to tone matrix
+  //TODO: Update radio buttons in radio matrix
+  NSString *thePath = [_midiInputLabel stringValue];
+  processToneFileOpen([thePath cStringUsingEncoding:NSStringEncodingConversionAllowLossy], MIDI_TONE_INDEX);
+
+  int tset = 10;
+  int cell = 1;
+  
+  for(int i = 0; i < 5; i++){
+    for(int j = 0; j < 5; j++){
+      
+      float val = getToneFromToneSet(tset,i*5+j);//toneSets[i*5 + j][tset];
+      fprintf(stderr,"the value here is %f\n",val);
+      
+      
+      int radioTag = cell;
+      
+      
+      NSArray *temp = [toneMap allKeys];
+      NSString *actualKey = NULL;
+      for( NSString *k in temp){
+        
+        NSNumber *num = [toneMap objectForKey:k];
+        if( [num floatValue] == val){
+          
+          actualKey = k;
+          
+          break;
+          
+        }
+        
+      }
+      if( actualKey != NULL){
+        
+        [[radioMatrix cellWithTag: (radioTag)] setTitle: actualKey];
+        
+      }
+      
+      cell++;
+    }
     
+  }
+  
+  tuneToToneSet((int)tset);
+
+}
+
+- (IBAction)sliderChange:(id)sender;
+{
+ 
+  //fprintf(stderr,"slider said %f\n",[amplitudeThresholdSlider floatValue]);
+  setAmplitudeThreshold([amplitudeThresholdSlider floatValue]);
+  NSString *st = [NSString stringWithFormat:@"%.2f", [amplitudeThresholdSlider floatValue]];
+ 
+  [thresholdLabel setStringValue:st];
+//  [thresholdLabel setValue:[amplitudeThresholdSlider stringValue]];
+  
+}
+
+- (void)applyMIDIToneSet {
+  
+  int tset = 10;
+  int cell = 1;
+  
+  for(int i = 0; i < 5; i++){
+    for(int j = 0; j < 5; j++){
+      
+      float val = getToneFromToneSet(tset,i*5+j);//toneSets[i*5 + j][tset];
+      fprintf(stderr,"the value here is %f\n",val);
+      
+      
+      int radioTag = cell;
+      
+      
+      NSArray *temp = [toneMap allKeys];
+      NSString *actualKey = NULL;
+      for( NSString *k in temp){
+        
+        NSNumber *num = [toneMap objectForKey:k];
+        if( [num floatValue] == val){
+          
+          actualKey = k;
+          
+          break;
+          
+        }
+        
+      }
+      if( actualKey != NULL){
+        
+        [[radioMatrix cellWithTag: (radioTag)] setTitle: actualKey];
+        
+      }else{
+        
+        fprintf(stderr,"Didn't find %f\n", val);
+        
+      }
+      
+      cell++;
+    }
     
+  }
+  
+  tuneToToneSet((int)tset);
+  
+  
+}
+
+
+- (IBAction)applySelectedToneSet:(id)sender {
+  
+  int tset = (int)[[toneSet selectedCell] tag] - 1;
+  fprintf(stderr,"got in here with tset = %d\n",tset);
+  int cell = 1;
+  
+  for(int i = 0; i < 5; i++){
     
+    for(int j = 0; j < 5; j++){
+      
+      float val = getToneFromToneSet(tset,i*5+j);
+      //fprintf(stderr,"toneSets[%d (i=%d j=%d)][%d] = %f\n",i*5+j,i,j,tset,val);
+      
+      int radioTag = cell;
+      
+      NSArray *temp = [toneMap allKeys];
+      NSString *actualKey = NULL;
+      for( NSString *k in temp){
+        
+        NSNumber *num = [toneMap objectForKey:k];
+        if( [num floatValue] == val){
+          
+          actualKey = k;
+          
+          break;
+          
+        }
+        
+      }
+      if( actualKey != NULL){
+        
+        [[radioMatrix cellWithTag: (radioTag)] setTitle: actualKey];
+        
+      }
+      
+      cell++;
+    }
+    
+  }
+  
+  tuneToToneSet((int)tset);
+
+
 }
 
 - (IBAction)saveToneFile:(id)sender {
@@ -216,9 +362,9 @@ static NSDictionary *toneMap;
         int col = i / 5;
         int row = i % 5;
 
-        toneSets[col * 5 + row][cell] = val;
-     
-        
+        //toneSets[col * 5 + row][cell] = val;
+        setToneInToneSet(cell,col*5+row,val);
+      
     }
     
     fprintf(stderr,"here3 and cell was %d\n",cell);
@@ -301,8 +447,7 @@ static NSDictionary *toneMap;
     fprintf(stderr,"and setting that little label to ");
     
     NSString *a = [sender stringValue];
-    
-    
+  
     [[radioMatrix selectedCell] setTitle: a];
     
 }

@@ -20,6 +20,8 @@
 #include <pthread.h>
 #include <unistd.h>
 
+#define NUM_TONE_SETS 11 //10 for user + 1 for MIDI
+
 CvCapture *camera;
 
 bool useMIDI = false;
@@ -29,6 +31,8 @@ bool fullScreen = false;
 bool done = false;
 
 
+float amplitude_threshold = 0.2f;
+
 extern "C" {
     
   unsigned long SCREEN_HEIGHT = 0;
@@ -36,8 +40,23 @@ extern "C" {
 
 }
 
-float toneSets[NUM_WAVES][10];
-bool validToneSet[10] = {false, false, false, false, false, false, false, false, false, false};
+float toneSets[NUM_WAVES][NUM_TONE_SETS];
+bool validToneSet[NUM_TONE_SETS] = {false, false, false, false, false, false, false, false, false, false, false};
+
+float getToneFromToneSet(int set, int tone){
+  
+  return toneSets[tone][set];
+  
+}
+
+void setToneInToneSet(int set, int tone, float f){
+  
+  toneSets[tone][set] = f;
+  
+}
+
+
+
 void processToneFileOpen(const char *string, int index){
 
     fprintf(stderr,"Hi baby.  Setting %d to %s\n",index, string);
@@ -46,9 +65,11 @@ void processToneFileOpen(const char *string, int index){
     int i = 0;
     while( fscanf(f,"%f\n", &toneVal) != EOF && i < NUM_WAVES ){
         
-        fprintf(stderr,"the thing was <%f>\n", toneVal);
-        toneSets[i++][index] = toneVal;
-        
+
+        toneSets[i][index] = toneVal;
+        fprintf(stderr,"toneSets[%d][%d] = <%f>\n", i, index, toneSets[i][index]);
+        i++;
+      
     }
     fclose(f);
     validToneSet[index] = true;
@@ -68,6 +89,13 @@ void processToneFileSave(const char *string, int index){
     
 }
 
+void setAmplitudeThreshold(float newthresh){
+  
+  if( amplitude_threshold >= 0.0f && amplitude_threshold <= 1.0f){
+    amplitude_threshold = newthresh;
+  }
+  
+}
 
 void tune(int which, float freq);
 void tuneToToneSet(int which){
@@ -75,13 +103,27 @@ void tuneToToneSet(int which){
     if( validToneSet[which] == true ){
         
         for( int i = 0; i < NUM_WAVES; i++){
-            
+            fprintf(stderr,"tonesets[%d][%d] = %f\n",i,which,toneSets[i][which]);
             tune(i,toneSets[i][which]);
             
         }
         
     }
 
+}
+
+void handleCameraSelection(int cameraNumber){
+  
+  if (!done ){ return; } //Only change cameras while paused
+  CvCapture *newCam = cvCreateCameraCapture (cameraNumber);
+  if( newCam ){
+    CvCapture *oldCam = camera;
+    camera = newCam;
+    cvReleaseCapture(&oldCam);
+  }else{
+    fprintf(stderr,"There is no Camera %d\n",cameraNumber);
+  }
+  
 }
 
 void handleFullScreen(){
@@ -142,11 +184,22 @@ int handleKey(){
           useBeat = false;
           return 1;
         }
+  
+        if (key == '1'){
 
-    if (key == 'f'){
+          handleCameraSelection(1);
 
-        handleFullScreen();
-    }
+        }
+
+        if (key == '0'){
+
+          handleCameraSelection(0);
+
+        }
+
+        if (key == 'f'){
+          handleFullScreen();
+        }
     
    
     
@@ -202,11 +255,10 @@ int Changomain(int argc, char *argv[],int width, int height){
 	Mahalo *m = new Mahalo();
 
 	m->setup();
-    m->sstart();
+  m->sstart();
         
-        camera = cvCreateCameraCapture (CV_CAP_ANY);
-        //camera = cvCreateCameraCapture (10);
-        cvNamedWindow(WINDOW_NAME_STR,CV_WINDOW_NORMAL);
+  camera = cvCreateCameraCapture (CV_CAP_ANY);
+  cvNamedWindow(WINDOW_NAME_STR,CV_WINDOW_NORMAL);
  
         /*clv should be loaded from a factory that can be specified on the command line*/ 
         ChangoInput *ci;

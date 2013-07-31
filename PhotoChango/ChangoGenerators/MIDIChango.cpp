@@ -34,15 +34,7 @@ MIDIChango::MIDIChango(Mahalo *M){
   for(int i = 0 ; i < 6; i++){
     eps[i] = MIDIGetDestination(i);
   }
-  //this->m = M;
 
-  //SampleMixer *s = new SampleMixer();
-
-  //for ( int i = 0; i < NUM_WAVES; i++ ){
-
-  //}
-  
-  //m->setSampleSource(s); 
 
 }
 
