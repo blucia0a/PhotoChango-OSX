@@ -346,7 +346,9 @@
 				370B9C2316A212FD008B2CB6 /* Frameworks */,
 				370B9C2116A212FD008B2CB6 /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		370B9C2116A212FD008B2CB6 /* Products */ = {
 			isa = PBXGroup;
